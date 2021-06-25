@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js sample</title>
+		<link rel="stylesheet" href="style.css" >
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+	
+	<body>
+		<h2>mm→pixelに変換</h2><br>
+		<p>mmサイズ</p>
+		<div id="app">
+			<input  v-model.number="mmy" type="number">mm　×
+			<input  v-model.number="mmx" type="number">mm
+			<p>解像度</p>
+			<input  v-model.number="dpi" type="number">dpi
+			<p>⬇︎</p><br>
+			<p>変換後</p>
+			<p>{{ sum }} pixel</p>　×　
+			<p>{{ sum2 }} pixel</p>
+		</div><br>
+		<script>
+			
+			new Vue({
+				el: '#app',
+				data: {
+					mmy: 100,
+					mmx: 100,
+					dpi: 300
+				},
+				computed: {
+					// mmかdpi変わったら、pixelを算出する
+					sum: function() {
+						return this.mmy * this.dpi / 25.4;
+					},
+					// mmが変わったら、pixelを算出する
+					sum2: function() {
+						return this.mmx * this.dpi / 25.4;
+					}
+				}
+			})
+		
+		</script>
+		
