@@ -14,7 +14,9 @@
 			<input  v-model.number="mmy" type="number">mm　×
 			<input  v-model.number="mmx" type="number">mm
 			<p>解像度</p>
-			<input  v-model.number="dpi" type="number">dpi
+			<input  v-model.number="dpi" type="number">dpi<br>
+			<br>
+			<br>
 			<p>⬇︎</p><br>
 			<p>変換後</p>
 			<p>{{ sum }} pixel</p>　×　
@@ -32,11 +34,11 @@
 				computed: {
 					// mmかdpi変わったら、pixelを算出する
 					sum: function() {
-						return this.mmy * this.dpi / 25.4;
+						return Math.floor (this.mmy * this.dpi / 25.4);
 					},
 					// mmが変わったら、pixelを算出する
 					sum2: function() {
-						return this.mmx * this.dpi / 25.4;
+						return Math.floor (this.mmx * this.dpi / 25.4);
 					}
 				}
 			})
